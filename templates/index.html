@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <title>Sentiment Analysis Tool</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+
+    <body>
+        <div class="logo-container">
+            <a href="">
+                <img src="{{ url_for('static', filename='"\Vibelyze_logo.png"') }}" alt="Emotion Logo" class="logo">
+            </a>
+        </div>
+        <h1 class="page-title">Vibelyze</h1>
+        <div class="chat-container">
+            <h2>Sentiment Analysis Chatbot</h2>
+            <div class="chat-box">
+                <form method="post">
+                    <label for="movie-title">Enter Movie Title:</label><br>
+                    <input type="text" id="movie-title" name="movie_title" class="user-input"><br>
+                    <label for="text-input">Enter Text to Analyze:</label><br>
+                    <textarea id="text-input" name="text_input" class="user-input" rows="4"></textarea><br>
+                    <input type="submit" value="Analyze" class="submit-btn">
+                </form>
+            </div>
+            {% if sentiment_result %}
+                <div class="chat-box">
+                    <p><strong>Analysis Result:</strong> {{ sentiment_result }}</p>
+                </div>
+            {% endif %}
+        </div>
+    </body>
+
+</html>
